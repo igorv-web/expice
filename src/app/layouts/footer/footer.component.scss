@@ -1,0 +1,21 @@
+.footer {
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  background-color: #FFF5EC;
+  justify-content: flex-end;
+  align-items: center;
+
+  img {
+    width: 3vw;
+    align-items: center;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 5%;
+    font-weight: 600;
+  }
+}

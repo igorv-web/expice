@@ -1,0 +1,27 @@
+.container {
+  height: 100vh;
+  background-color: #FFF5EC;
+  display: flex;
+  padding: 0 10%;
+}
+
+.menu {
+  margin-right: 10%;
+}
+
+li {
+  list-style: none;
+
+  a {
+    font-size: xx-large;
+    font-weight: bold;
+    text-decoration: none;
+    color: #2E266F;
+    padding: 5%;
+    border-radius: 5%;
+  }
+
+  a:hover {
+    background-color: #FFEDDE;
+  }
+}

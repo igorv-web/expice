@@ -1,0 +1,30 @@
+@import "../../../styles/mixins";
+
+.header {
+  width: 100%;
+  height: 15vh;
+  @include center;
+  justify-content: space-around;
+  background-color: #FFF5EC;
+
+  a {
+    text-decoration: none;
+    color: #2E266F;
+    font-style: normal;
+    font-weight: normal;
+  }
+
+  a:hover {
+    @include main-color;
+  }
+
+  #title {
+    font-weight: bold;
+    font-size: x-large;
+    @include main-color;
+  }
+
+  nav a:last-child {
+    margin-left: 15%;
+  }
+}

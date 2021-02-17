@@ -1,0 +1,11 @@
+@mixin main-color {
+  color: #FE043C;
+}
+@mixin bg-color {
+  background-color: #FE043C;
+}
+
+@mixin center {
+  display: flex;
+  align-items: center;
+}

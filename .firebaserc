@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "expice-food": {
+      "hosting": {
+        "expice": [
+          "expice-food"
+        ]
+      }
+    }
+  }
+}
