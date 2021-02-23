@@ -1,1 +1,82 @@
-<p>admin-product works!</p>
+<details>
+  <summary>
+    <div class="button" *ngIf="!isHide">
+      Add new product
+    </div>
+    <div class="details-modal-overlay"></div>
+  </summary>
+  <div class="details-modal">
+    <div class="details-modal-close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M13.7071 1.70711C14.0976 1.31658 14.0976 0.683417 13.7071 0.292893C13.3166 -0.0976311 12.6834 -0.0976311 12.2929 0.292893L7 5.58579L1.70711 0.292893C1.31658 -0.0976311 0.683417 -0.0976311 0.292893 0.292893C-0.0976311 0.683417 -0.0976311 1.31658 0.292893 1.70711L5.58579 7L0.292893 12.2929C-0.0976311 12.6834 -0.0976311 13.3166 0.292893 13.7071C0.683417 14.0976 1.31658 14.0976 1.70711 13.7071L7 8.41421L12.2929 13.7071C12.6834 14.0976 13.3166 14.0976 13.7071 13.7071C14.0976 13.3166 14.0976 12.6834 13.7071 12.2929L8.41421 7L13.7071 1.70711Z"
+          fill="black" />
+      </svg>
+    </div>
+    <div class="details-modal-title">
+      <h1>New product</h1>
+    </div>
+    <div class="details-modal-content">
+      <form>
+        <label for="prodCat">Category</label>
+        <select [(ngModel)]="currentCategory" name="currentCategory">
+          <option [ngValue]="cat" *ngFor="let cat of adminCategories">{{cat.name}}</option>
+        </select>
+        <label for="prodName">Name</label>
+        <input type="text" [(ngModel)]="prodName" name="prodName" id="prodName" class="input_add">
+        <label for="prodURLName">URL</label>
+        <input type="text" [(ngModel)]="prodURLName" name="prodURLName" id="prodURLName" class="input_add">
+        <label for="prodPrice">Price</label>
+        <input type="text" [(ngModel)]="prodPrice" name="prodPrice" id="prodPrice" class="input_add">
+        <div class="file" *ngIf="!uploadStatus">
+          <label class="custom-file-label" for="prodImage">Choose file...</label>
+          <input (change)="uploadFile($event)" type="file" class="custom-file-input" id="prodImage">
+        </div>
+        <div *ngIf="uploadStatus" class="img">
+          <img [src]="prodImage" alt="" width="200px">
+          <button (click)="deleteImage()" type="button" class="delete" id="del">Delete</button>
+        </div>
+        <button (click)="addProduct()">Add</button>
+      </form>
+    </div>
+  </div>
+</details>
+
+<form *ngIf="editStatus">
+  <label for="NewProdName">Name</label>
+  <input type="text" [(ngModel)]="NewProdName" name="NewProdName" id="NewProdName" class="input_add">
+  <label for="NewProdURLName">URL</label>
+  <input type="text" [(ngModel)]="NewProdURLName" name="NewProdURLName" id="NewProdURLName" class="input_add">
+  <label for="NewProdPrice">Price</label>
+  <input type="text" [(ngModel)]="NewProdPrice" name="NewProdPrice" id="NewProdPrice" class="input_add">
+  <button (click)="updateProduct()">Save</button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Name</th>
+      <th>URL</th>
+      <th>Price</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of adminProducts">
+      <td>{{prod.id  | slice: -4}}</td>
+      <td>{{prod.category.name }}</td>
+      <td>{{prod.name}}</td>
+      <td>{{prod.urlName}}</td>
+      <td>{{prod.price}}</td>
+      <td>
+        <button class="edit" (click)="editProduct(prod.id, prod)">Edit</button>
+      </td>
+      <td>
+        <button class="delete" (click)="deleteProduct(prod)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -218,3 +218,21 @@
     color: #707070;
   }
 }
+
+@media all and (max-width:550px) {
+  .advantages {
+    display: grid;
+
+    .lf {
+      width: 80vw;
+    }
+
+    .rg {
+      width: 80vw;
+    }
+
+    .square {
+      max-height: 5vh;
+    }
+  }
+}

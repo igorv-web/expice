@@ -1,4 +1,13 @@
+@import "../../../styles/mixins";
+
 .container {
-  height: 85vh;
+  min-height: 85vh;
   background-color: #FFF5EC;
+  display: flex;
+
+  @include card;
+
+  button {
+    @include delete;
+  }
 }

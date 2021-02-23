@@ -1,0 +1,33 @@
+@import "../../../styles/mixins";
+
+@include table;
+
+.edit {
+  @include edit;
+}
+
+.delete {
+  @include delete;
+}
+
+@include modal;
+
+form {
+  display: grid;
+}
+
+@include input-add;
+
+#del {
+  margin-left: 15%;
+}
+
+.img {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.file {
+  display: grid;
+}
