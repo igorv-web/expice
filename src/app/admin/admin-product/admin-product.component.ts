@@ -9,7 +9,7 @@ import { Product } from 'src/app/shared/models/product.model';
 @Component({
   selector: 'app-admin-product',
   templateUrl: './admin-product.component.html',
-  styleUrls: ['./admin-product.component.scss']
+  styleUrls: ['./admin-product.component.scss'],
 })
 export class AdminProductComponent implements OnInit {
   adminCategories: Array<ICategory> = [];
@@ -28,8 +28,10 @@ export class AdminProductComponent implements OnInit {
   NewProdPrice: number;
   prodID: string;
 
-  constructor(private afStorage: AngularFireStorage,
-              private apiService: ApiService) { }
+  constructor(
+    private afStorage: AngularFireStorage,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.getCategories();
@@ -37,67 +39,82 @@ export class AdminProductComponent implements OnInit {
   }
 
   private getCategories(): void {
-    this.apiService.getFireCloudCategories().snapshotChanges().pipe(
-      map(collection =>
-        collection.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+    this.apiService
+      .getFireCloudCategories()
+      .snapshotChanges()
+      .pipe(
+        map((collection) =>
+          collection.map((c) => ({
+            id: c.payload.doc.id,
+            ...c.payload.doc.data(),
+          }))
         )
       )
-    ).subscribe(data => {
-      this.adminCategories = data;
-    });
+      .subscribe((data) => {
+        this.adminCategories = data;
+      });
   }
 
   private getProducts(): void {
-    this.apiService.getFireCloudProducts().snapshotChanges().pipe(
-      map(collection =>
-        collection.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+    this.apiService
+      .getFireCloudProducts()
+      .snapshotChanges()
+      .pipe(
+        map((collection) =>
+          collection.map((c) => ({
+            id: c.payload.doc.id,
+            ...c.payload.doc.data(),
+          }))
         )
       )
-    ).subscribe(data => {
-      this.adminProducts = data;
-    });
+      .subscribe((data) => {
+        this.adminProducts = data;
+      });
   }
 
-  addProduct(): void{
-    const PROD  = new Product(
+  addProduct(): void {
+    const PROD = new Product(
       this.prodName,
       this.prodURLName,
       this.currentCategory,
       this.prodPrice,
       this.prodImage
-      );
-    this.apiService.addFireCloudProduct(PROD)
-      .catch(err => console.log(err));
+    );
+    this.apiService.addFireCloudProduct(PROD).catch((err) => console.log(err));
     this.resetForm();
     this.uploadStatus = false;
   }
 
   deleteProduct(product: IProduct): void {
-    this.apiService.deleteFireCloudProduct(product.id.toString())
-    .catch(err => console.log(err));
+    this.apiService
+      .deleteFireCloudProduct(product.id.toString())
+      .catch((err) => console.log(err));
   }
 
   uploadFile(event): void {
     const file = event.target.files[0];
     const filePath = `images/${file.name}`;
     this.upload = this.afStorage.upload(filePath, file);
-    this.upload.then(image => {
-      this.afStorage.ref(`images/${image.metadata.name}`).getDownloadURL().subscribe(url => {
-        this.prodImage = url;
-        this.uploadStatus = true;
-        event.target.files = null;
-      });
+    this.upload.then((image) => {
+      this.afStorage
+        .ref(`images/${image.metadata.name}`)
+        .getDownloadURL()
+        .subscribe((url) => {
+          this.prodImage = url;
+          this.uploadStatus = true;
+          event.target.files = null;
+        });
     });
   }
 
   deleteImage(): void {
-    this.afStorage.storage.refFromURL(this.prodImage).delete()
+    this.afStorage.storage
+      .refFromURL(this.prodImage)
+      .delete()
       .then(() => {
         this.uploadStatus = false;
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   }
 
   editProduct(id: string, product: IProduct): void {
@@ -112,9 +129,16 @@ export class AdminProductComponent implements OnInit {
   }
 
   updateProduct(): void {
-    const NEW_PRODUCT = new Product(this.NewProdName, this.NewProdURLName, this.currentCategory, this.NewProdPrice, this.prodImage);
-    this.apiService.updateFireCloudProduct(this.prodID, NEW_PRODUCT)
-      .catch(err => console.log(err));
+    const NEW_PRODUCT = new Product(
+      this.NewProdName,
+      this.NewProdURLName,
+      this.currentCategory,
+      this.NewProdPrice,
+      this.prodImage
+    );
+    this.apiService
+      .updateFireCloudProduct(this.prodID, NEW_PRODUCT)
+      .catch((err) => console.log(err));
     this.resetForm();
     this.editStatus = false;
     this.isHide = false;
@@ -126,5 +150,4 @@ export class AdminProductComponent implements OnInit {
     this.prodPrice = 0;
     this.prodImage = '';
   }
-
 }

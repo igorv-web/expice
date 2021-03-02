@@ -9,15 +9,12 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { BurgersComponent } from './pages/burgers/burgers.component';
-import { DrinksComponent } from './pages/drinks/drinks.component';
 import { BasketComponent } from './pages/basket/basket.component';
-import { SaladsComponent } from './pages/salads/salads.component';
+import { ProductsComponent } from './pages/products/products.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
-import { AdminBlogComponent } from './admin/admin-blog/admin-blog.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -31,15 +28,12 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BurgersComponent,
-    DrinksComponent,
     AdminComponent,
     AdminCategoryComponent,
     AdminProductComponent,
-    AdminBlogComponent,
     BasketComponent,
     ProductDetailsComponent,
-    SaladsComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

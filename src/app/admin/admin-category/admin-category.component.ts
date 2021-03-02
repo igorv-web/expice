@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-admin-category',
   templateUrl: './admin-category.component.html',
-  styleUrls: ['./admin-category.component.scss']
+  styleUrls: ['./admin-category.component.scss'],
 })
 export class AdminCategoryComponent implements OnInit {
   adminCategories: Array<ICategory> = [];
@@ -18,34 +18,41 @@ export class AdminCategoryComponent implements OnInit {
   isHide: boolean = false;
   NewCatName: string;
   NewCatURLName: string;
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.getCategories();
   }
 
   private getCategories(): void {
-    this.apiService.getFireCloudCategories().snapshotChanges().pipe(
-      map(collection =>
-        collection.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
+    this.apiService
+      .getFireCloudCategories()
+      .snapshotChanges()
+      .pipe(
+        map((collection) =>
+          collection.map((c) => ({
+            id: c.payload.doc.id,
+            ...c.payload.doc.data(),
+          }))
         )
       )
-    ).subscribe(data => {
-      this.adminCategories = data;
-    });
+      .subscribe((data) => {
+        this.adminCategories = data;
+      });
   }
 
   addCategory(): void {
     const newCat = new Category(this.catName, this.catURLName);
-    this.apiService.addFireCloudCategory(newCat)
-      .catch(err => console.log(err));
+    this.apiService
+      .addFireCloudCategory(newCat)
+      .catch((err) => console.log(err));
     this.resetForm();
   }
 
   deleteCategory(category: ICategory): void {
-    this.apiService.deleteFireCloudCategory(category.id.toString())
-      .catch(err => console.log(err));
+    this.apiService
+      .deleteFireCloudCategory(category.id.toString())
+      .catch((err) => console.log(err));
   }
 
   editCategory(id: string, category: ICategory): void {
@@ -58,8 +65,9 @@ export class AdminCategoryComponent implements OnInit {
 
   updateCategory(): void {
     const editCat = new Category(this.NewCatName, this.NewCatURLName);
-    this.apiService.updateFireCloudCategory(this.catID, editCat)
-      .catch(err => console.log(err));
+    this.apiService
+      .updateFireCloudCategory(this.catID, editCat)
+      .catch((err) => console.log(err));
     this.resetForm();
     this.editStatus = false;
     this.isHide = false;

@@ -1,0 +1,61 @@
+@import "../../../styles/mixins";
+
+.container {
+  min-height: 85vh;
+  background-color: #FFF5EC;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 0 2% 0;
+}
+
+.product {
+  width: 15vw;
+  height: 30vh;
+  background-color: #FFF5EC;
+  display: grid;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5%;
+  overflow: hidden;
+  margin-top: 2%;
+
+  span {
+    display: none;
+    margin-top: 15%;
+    p {
+      font-size: 1vw;
+    }
+
+    #name {
+      font-size: large;
+    }
+  }
+
+  .heart {
+    display: none;
+    margin: 0 auto;
+  }
+}
+
+.product:hover {
+  background-color: #FFEDDE;
+  transition-property: background-color;
+
+  .prod_img {
+    display: none;
+  }
+
+  span {
+    max-width: 80%;
+    display: block;
+    margin: 0 auto;
+    font-size: medium;
+  }
+}

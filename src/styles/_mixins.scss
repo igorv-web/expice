@@ -232,38 +232,3 @@
     height: 5vh;
   }
 }
-
-@mixin card {
-  .card {
-    width: 20%;
-    height: 25vh;
-    border-radius: 5%;
-    background-color: #FFEDDE;
-    text-align: center;
-    margin: 10%;
-
-    img {
-      height: 50%;
-    }
-
-    .info {
-      display: grid;
-
-      button {
-        margin: 0 auto;
-      }
-    }
-
-    .name {
-      color: #2E266F;
-      text-decoration: none;
-      font-size: x-large;
-    }
-
-    .price {
-      @include main-color;
-      font-size: larger;
-    }
-  }
-
-}
