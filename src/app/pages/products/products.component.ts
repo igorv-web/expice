@@ -14,12 +14,15 @@ export class ProductsComponent implements OnInit {
   products: Array<IProduct> = [];
   subscription: Subscription;
 
-  constructor(private apiService: ApiService, private router: Router, private route: ActivatedRoute, private basketService: BasketService) {
-        this.router.events.subscribe((event: Event) => {
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private basketService: BasketService
+  ) {
+    this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
-        const NAME_CATEGORY = this.route.snapshot.paramMap.get(
-          'category'
-        );
+        const NAME_CATEGORY = this.route.snapshot.paramMap.get('category');
         this.getProducts(NAME_CATEGORY);
       }
     });
@@ -42,9 +45,5 @@ export class ProductsComponent implements OnInit {
           this.products.push(product);
         });
       });
-  }
-
-  addBasket(product: IProduct): void {
-    this.basketService.addBasket(product);
   }
 }

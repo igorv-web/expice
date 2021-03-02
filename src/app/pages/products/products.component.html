@@ -1,6 +1,6 @@
 <div class="container">
   <div class="content">
-    <div class="product" *ngFor="let prod of products">
+    <div class="product" *ngFor="let prod of products" [routerLink]="[ '/menu/' +prod.category.urlName, prod.urlName ]">
       <img [src]="prod.img" alt="" style="width: 100%; height: 100%;" class="prod_img">
       <span>
         <p id="name">{{prod.name}}</p>

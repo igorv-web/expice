@@ -1,122 +1,65 @@
-.container {
-  width: 100vw;
-}
+@import "../../../styles/mixins";
 
-.card {
+.conatiner {
   width: 100%;
-  position: absolute;
-  background: white;
-  margin: 0 auto;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  transition: all 0.3s;
+  height: 75vh;
+  background-color: #FFF5EC;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+  padding-top: 0;
 
-  &:hover {
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .back {
+    font-weight: bold;
+    font-size: large;
+    @include main-color;
+    text-decoration: none;
   }
 
-  nav {
-    width: 100%;
-    color: #727272;
-    text-transform: uppercase;
-    padding: 20px;
-    border-bottom: 2px solid #efefef;
-    font-size: 12px;
-
-    svg.heart {
-      height: 24px;
-      width: 24px;
-      float: right;
-      margin-top: -3px;
-      transition: all 0.3s ease;
-      cursor: pointer;
-
-      &:hover {
-        fill: red;
-      }
-
-    }
-
-    svg.arrow {
-      float: left;
-      height: 15px;
-      width: 15px;
-      margin-right: 10px;
-    }
-
-  }
-
-  .photo {
-    padding: 30px;
-    width: 45%;
-    text-align: center;
-    float: left;
+  .content {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     img {
-      max-height: 240px;
+      width: 50%;
+      height: 85%;
     }
 
-  }
+    .rg {
+      display: grid;
+      width: 45%;
+      height: 55%;
 
-  .description {
-    padding: 30px;
-    float: left;
-    width: 55%;
-    border-left: 2px solid #efefef;
+      .name {
+        font-size: 3vw;
+        font-style: normal;
+        font-weight: bold;
+        text-transform: capitalize;
+        color: #2E266F;
+      }
 
-    h1 {
-      color: #515151;
-      font-weight: 300;
-      padding-top: 15px;
-      margin: 0;
-      font-size: 30px;
-      font-weight: 300;
-    }
+      .price {
+        font-weight: bold;
+        font-size: x-large;
+        @include main-color;
+      }
 
-    h2 {
-      color: #515151;
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    h4 {
-      margin: 0;
-      color: #727272;
-      text-transform: uppercase;
-      font-weight: 500;
-      font-size: 12px
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 20px;
-      color: #727272;
-      padding: 20px 0;
-      margin: 0;
-    }
-
-    button {
-      outline: 0;
-      border: 0;
-      background: none;
-      border: 1px solid #d9d9d9;
-      padding: 8px 0px;
-      margin-bottom: 30px;
-      color: #515151;
-      text-transform: uppercase;
-      width: 125px;
-      font-family: inherit;
-      margin-right: 5px;
-      transition: all 0.3s ease;
-      font-weight: 500;
-
-      &:hover {
-        border: 1px solid #aedaa6;
-        color: #aedaa6;
+      button {
+        width: 35%;
+        @include bg-color;
+        color: #fff;
+        border: 0;
+        border-radius: 5px;
+        font-size: large;
+        font-weight: bold;
         cursor: pointer;
+        outline: none;
+
+        &:hover {
+          opacity: 0.6;
+        }
       }
     }
   }
