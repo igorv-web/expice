@@ -9,9 +9,10 @@ import { HeaderComponent } from './layouts/header/header.component';
 import { FooterComponent } from './layouts/footer/footer.component';
 
 import { HomeComponent } from './pages/home/home.component';
-import { BasketComponent } from './pages/basket/basket.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { BasketComponent } from './pages/basket/basket.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
@@ -20,6 +21,7 @@ import { AdminProductComponent } from './admin/admin-product/admin-product.compo
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -33,7 +35,8 @@ import { environment } from '../environments/environment';
     AdminProductComponent,
     BasketComponent,
     ProductDetailsComponent,
-    ProductsComponent
+    ProductsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { environment } from '../environments/environment';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

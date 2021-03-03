@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { BasketComponent } from './pages/basket/basket.component';
+import { RegistrationComponent } from './pages/registration/registration.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'menu/:category', component: ProductsComponent },
   { path: 'menu/:category/:name', component: ProductDetailsComponent },
   { path: 'basket', component: BasketComponent },
+  { path: 'profile', component: RegistrationComponent },
   { path: 'admin', component: AdminComponent, children: [
     { path: 'admin-category', component: AdminCategoryComponent },
     { path: 'admin-product', component: AdminProductComponent }
