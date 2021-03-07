@@ -6,13 +6,13 @@
       <span *ngIf="haveAc">Log in your profile</span>
       <form>
         <label for="email">Email</label>
-        <input type="email" placeholder="Write your email here">
+        <input type="email" placeholder="Write your email here" [(ngModel)]="userEmail" name="userEmail">
         <label for="password">Password</label>
-        <input type="password" placeholder="Write your password here">
+        <input type="password" placeholder="Write your password here" [(ngModel)]="userPassword" name="userPassword">
       </form>
       <div class="btn">
-        <button *ngIf="!haveAc">Sign up</button>
-        <button *ngIf="haveAc">Log in</button>
+        <button *ngIf="!haveAc" (click)="signUp()">Sign up</button>
+        <button *ngIf="haveAc" (click)="logIn()">Log in</button>
         <a (click)="have()" *ngIf="!haveAc">Log in</a>
         <a (click)="have()" *ngIf="haveAc">Sign up</a>
       </div>
