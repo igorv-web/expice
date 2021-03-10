@@ -58,6 +58,7 @@ export class AuthService {
   signOutAC(): void {
     this.auth.signOut();
     localStorage.removeItem('user');
+    this.userStatus.next(false);
     this.router.navigateByUrl('/reg');
   }
 }

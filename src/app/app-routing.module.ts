@@ -14,6 +14,7 @@ import { AdminCategoryComponent } from './admin/admin-category/admin-category.co
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
 
 import { ProfileGuard } from './shared/guards/profile.guard';
+import { AdminGuard } from './shared/guards/admin.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -24,7 +25,7 @@ const routes: Routes = [
   { path: 'reg', component: RegistrationComponent },
   { path: 'order', component: OrderComponent },
   { path: 'user', component: UserComponent, canActivate: [ProfileGuard] },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
     { path: 'admin-category', component: AdminCategoryComponent },
     { path: 'admin-product', component: AdminProductComponent }
   ] }
