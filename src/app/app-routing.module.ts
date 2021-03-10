@@ -12,6 +12,7 @@ import { OrderComponent } from './pages/order/order.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 import { ProfileGuard } from './shared/guards/profile.guard';
 import { AdminGuard } from './shared/guards/admin.guard';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'basket', component: BasketComponent },
   { path: 'reg', component: RegistrationComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'admin-login', component: AdminLoginComponent },
   { path: 'user', component: UserComponent, canActivate: [ProfileGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AdminGuard], children: [
     { path: 'admin-category', component: AdminCategoryComponent },

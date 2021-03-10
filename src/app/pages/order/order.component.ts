@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./order.component.scss']
 })
 export class OrderComponent implements OnInit {
+  order: Array<any> = [];
+  adress: string;
+  name: string;
+  phone: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  confirmOrder(): void {
+    this.order.push(this.adress, this.name, this.phone);
   }
 
 }

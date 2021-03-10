@@ -19,13 +19,13 @@ import { OrderComponent } from './pages/order/order.component';
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
