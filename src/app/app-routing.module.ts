@@ -7,10 +7,13 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { BasketComponent } from './pages/basket/basket.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { UserComponent } from './pages/user/user.component';
+import { OrderComponent } from './pages/order/order.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
 import { AdminProductComponent } from './admin/admin-product/admin-product.component';
+
+import { ProfileGuard } from './shared/guards/profile.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -19,7 +22,8 @@ const routes: Routes = [
   { path: 'menu/:category/:name', component: ProductDetailsComponent },
   { path: 'basket', component: BasketComponent },
   { path: 'reg', component: RegistrationComponent },
-  { path: 'user', component: UserComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'user', component: UserComponent, canActivate: [ProfileGuard] },
   { path: 'admin', component: AdminComponent, children: [
     { path: 'admin-category', component: AdminCategoryComponent },
     { path: 'admin-product', component: AdminProductComponent }

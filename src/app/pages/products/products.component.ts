@@ -3,6 +3,7 @@ import { ActivatedRoute, NavigationEnd, Router, Event } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { IProduct } from 'src/app/shared/interfaces/product.interface';
 import { ApiService } from 'src/app/shared/services/api.service';
+import { BasketService } from 'src/app/shared/services/basket.service';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +17,8 @@ export class ProductsComponent implements OnInit {
   constructor(
     private apiService: ApiService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private basketService: BasketService
   ) {
     this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationEnd) {
@@ -43,5 +45,19 @@ export class ProductsComponent implements OnInit {
           this.products.push(product);
         });
       });
+  }
+
+  increase(product: IProduct): void {
+    ++product.count;
+  }
+
+  decrease(product: IProduct): void {
+    if(product.count > 1) {
+      --product.count;
+    }
+  }
+
+  addBasket(product: IProduct): void {
+    this.basketService.addBasket(product);
   }
 }

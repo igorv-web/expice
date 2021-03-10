@@ -6,13 +6,15 @@
         <span>{{bsk.name}}</span>
       </div>
       <div class="rg">
-        <span>{{bsk.price}}$</span>
+        <a (click)="increase(bsk)">+</a>
+        <span class="price">{{bsk.price * bsk.count}}$</span>
+        <a (click)="decrease(bsk)">-</a>
         <img src="/assets/img/icons/basket/delete.png" alt="" (click)="removeProduct(bsk)">
       </div>
     </div>
     <div class="end">
       <span>Total: {{totalPrice}}$</span>
-      <button>Buy</button>
+      <button [routerLink]="[ '/order' ]">Buy</button>
     </div>
   </div>
 </div>

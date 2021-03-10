@@ -36,6 +36,16 @@ export class BasketComponent implements OnInit {
     this.getTotalPrice(this.basket);
   }
 
+  increase(product: IProduct): void {
+    ++product.count;
+  }
+
+  decrease(product: IProduct): void {
+    if(product.count > 1) {
+      --product.count;
+    }
+  }
+
   private getTotalPrice(basket: Array<IProduct>): void {
     if (basket) {
       this.totalPrice = this.basket.reduce(

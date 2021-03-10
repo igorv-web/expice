@@ -2,11 +2,11 @@
   <div class="content">
     <div class="user">
       <img src="/assets/img/reg/user/user.png" alt="">
-      <span>First name:</span>
-      <span>Last name:</span>
-      <span>Email:</span>
-      <span>Number:</span>
-      <button>Sign out</button>
+      <span>First name: <p></p></span>
+      <span>Last name: <p></p></span>
+      <span>Email: <p>{{user.email}}</p></span>
+      <span>Number: <p></p></span>
+      <button (click)="signOutUser()">Sign out</button>
     </div>
   </div>
 </div>

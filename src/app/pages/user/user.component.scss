@@ -37,6 +37,7 @@
         font-weight: bold;
         cursor: pointer;
         outline: none;
+        margin: 0 auto;
 
         &:hover {
           opacity: 0.6;
@@ -47,6 +48,11 @@
         font-size: large;
         @include main-color;
         font-weight: bold;
+
+        p {
+          font-size: medium;
+          color: #2E266F;
+        }
       }
     }
   }

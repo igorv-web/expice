@@ -14,6 +14,7 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { BasketComponent } from './pages/basket/basket.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { UserComponent } from './pages/user/user.component';
+import { OrderComponent } from './pages/order/order.component';
 
 import { AdminComponent } from './admin/admin.component';
 import { AdminCategoryComponent } from './admin/admin-category/admin-category.component';
@@ -38,7 +39,8 @@ import { environment } from '../environments/environment';
     ProductDetailsComponent,
     ProductsComponent,
     RegistrationComponent,
-    UserComponent
+    UserComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

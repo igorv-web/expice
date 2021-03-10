@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { IUser } from '../interfaces/user.interface';
 import { User } from '../models/user.model';
 
@@ -9,6 +10,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class AuthService {
+  userStatus = new Subject<boolean>();
 
   constructor(private auth: AngularFireAuth, private db: AngularFirestore, private router: Router) { }
 
@@ -23,6 +25,7 @@ export class AuthService {
             ...user.data() as IUser
           }
           localStorage.setItem('user', JSON.stringify(USER));
+          this.userStatus.next(true);
           this.router.navigateByUrl('/user');
         })
       })
@@ -38,6 +41,7 @@ export class AuthService {
       this.db.collection('users').add({...NEW_USER})
       .then( collection => {
         collection.get().then(userCredential => {
+          this.userStatus.next(true);
           this.router.navigateByUrl('/user');
           const id = userCredential.id;
           const data = userCredential.data();
@@ -49,5 +53,11 @@ export class AuthService {
       .catch(err => console.log(err)
       )
     })
+  }
+
+  signOutAC(): void {
+    this.auth.signOut();
+    localStorage.removeItem('user');
+    this.router.navigateByUrl('/reg');
   }
 }

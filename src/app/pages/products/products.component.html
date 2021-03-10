@@ -1,11 +1,18 @@
 <div class="container">
   <div class="content">
-    <div class="product" *ngFor="let prod of products" [routerLink]="[ '/menu/' +prod.category.urlName, prod.urlName ]">
-      <img [src]="prod.img" alt="" style="width: 100%; height: 100%;" class="prod_img">
-      <span>
-        <p id="name">{{prod.name}}</p>
-        <p>{{prod.price}}</p>
-      </span>
+    <div class="product" *ngFor="let prod of products">
+      <img [src]="prod.img" alt="" class="prod_img" [routerLink]="[ '/menu/' +prod.category.urlName, prod.urlName ]">
+      <div class="info">
+        <div class="prod_info">
+          <p class="name" [routerLink]="[ '/menu/' +prod.category.urlName, prod.urlName ]">{{prod.name}}</p>
+          <div class="count">
+            <a (click)="increase(prod)">+</a>
+            <p class="price">{{prod.price * prod.count}}$</p>
+            <a (click)="decrease(prod)">-</a>
+          </div>
+        </div>
+        <button (click)="addBasket(prod)">Add</button>
+      </div>
     </div>
   </div>
 </div>

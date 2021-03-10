@@ -18,6 +18,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin: 1% 0;
 
     .lg {
       display: flex;
@@ -45,11 +46,20 @@
       span {
         @include main-color;
         font-weight: bold;
+        margin: 0 15%;
       }
 
       img {
         width: 20%;
         margin-left: 15%;
+        cursor: pointer;
+      }
+
+      a {
+        text-decoration: none;
+        color: #2E266F;
+        font-size: x-large;
+        font-weight: bold;
         cursor: pointer;
       }
     }
@@ -59,6 +69,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    margin-top: 5%;
 
     span {
       font-weight: bold;

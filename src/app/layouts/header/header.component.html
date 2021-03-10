@@ -6,7 +6,10 @@
     <a [routerLink]="[ '/menu/drink' ]">Drinks</a>
   </nav>
   <div class="icn">
-    <a [routerLink]="[ '/reg' ]">
+    <a [routerLink]="[ '/reg' ]" *ngIf="!isLogin">
+      <img src="/assets/img/icons/header/user.png" alt="" id="prof">
+    </a>
+    <a [routerLink]="[ '/user' ]" *ngIf="isLogin">
       <img src="/assets/img/icons/header/user.png" alt="" id="prof">
     </a>
     <a [routerLink]="[ '/basket' ]">
