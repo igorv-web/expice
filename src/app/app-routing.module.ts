@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'menu/:category', component: ProductsComponent },
   { path: 'menu/:category/:name', component: ProductDetailsComponent },
   { path: 'basket', component: BasketComponent },
-  { path: 'reg', component: RegistrationComponent },
+  { path: 'auth', component: RegistrationComponent },
   { path: 'order', component: OrderComponent },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'user', component: UserComponent, canActivate: [ProfileGuard] },
