@@ -1,1 +1,17 @@
-<p>admin-login works!</p>
+<div class="container">
+  <div class="content">
+    <img src="/assets/img/reg/Avocado-Chicken-Burgers_9.jpg" alt="">
+    <div class="reg">
+      <span>Log in your admin profile</span>
+      <form>
+        <label for="email">Email</label>
+        <input type="email" placeholder="Write your email here" [(ngModel)]="adminEmail" name="userEmail">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Write your password here" [(ngModel)]="adminPassword" name="userPassword">
+      </form>
+      <div class="btn">
+        <button (click)="adminLogIn()">Log in</button>
+      </div>
+    </div>
+  </div>
+</div>

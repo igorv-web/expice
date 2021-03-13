@@ -1,0 +1,79 @@
+@import "../../styles/mixins";
+
+.container {
+  width: 100%;
+  height: 85vh;
+  background-color: #FFF5EC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .content {
+    width: 70%;
+    height: 75vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 50%;
+      height: 100%;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: x-large;
+      @include main-color;
+    }
+
+    .reg {
+      width: 35%;
+      display: grid;
+      height: 65%;
+
+      form {
+        display: grid;
+        margin-bottom: 10%;
+
+        input {
+          height: 5vh;
+        }
+
+        label {
+          color: #2E266F;
+          font-weight: bold;
+        }
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+          text-transform: capitalize;
+          color: #2E266F;
+          margin-left: 10%;
+          cursor: pointer;
+        }
+
+        button {
+          width: 35%;
+          height: 10vh;
+          @include bg-color;
+          color: #fff;
+          border: 0;
+          border-radius: 5px;
+          font-size: large;
+          font-weight: bold;
+          cursor: pointer;
+          outline: none;
+  
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+    }
+  }
+}

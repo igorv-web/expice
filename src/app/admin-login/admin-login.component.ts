@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../shared/services/admin.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -6,10 +7,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-login.component.scss']
 })
 export class AdminLoginComponent implements OnInit {
+  adminEmail: string;
+  adminPassword: string;
 
-  constructor() { }
+  constructor(private auth: AdminService) { }
 
   ngOnInit(): void {
   }
 
+  adminLogIn(): void {
+    this.auth.signIn(this.adminEmail, this.adminPassword);
+    this.reset();
+  }
+
+  reset(): void {
+    this.adminEmail = '';
+    this.adminPassword = '';
+  }
 }
+

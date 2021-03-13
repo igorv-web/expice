@@ -9,12 +9,12 @@ import { Subject } from 'rxjs';
 export class AdminService {
   isAdmin = new Subject<boolean>();
 
-  constructor(private auth: AngularFireAuth, private router: Router) { }
+  constructor(private authAdmin: AngularFireAuth, private router: Router) { }
 
   signIn(email: string, password: string): void {
-    this.auth.signInWithEmailAndPassword(email, password)
+    this.authAdmin.signInWithEmailAndPassword(email, password)
     .then(userResponse => {
-      // localStorage.setItem('uid', JSON.stringify());
+      localStorage.setItem('uid', JSON.stringify(userResponse.user.uid));
       this.isAdmin.next(true);
       this.router.navigateByUrl('/admin/admin-product');
     })
@@ -23,9 +23,9 @@ export class AdminService {
   }
 
   signOutAdmin(): void {
-    this.auth.signOut();
+    this.authAdmin.signOut();
     localStorage.removeItem('uid');
     this.isAdmin.next(false);
-    this.router.navigateByUrl('/reg');
+    this.router.navigateByUrl('/admin-login');
   }
 }
