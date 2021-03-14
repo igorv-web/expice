@@ -83,7 +83,7 @@
     @include main-color;
     line-height: 35vh;
   }
-} 
+}
 
 /* blog */
 
@@ -132,105 +132,99 @@
 
 /* service */
 
-.block-service {
-  padding: 10% 0;
+.block-service .serv_topic {
+  @include center;
+  margin-left: 8%;
 
-  .serv_topic {
-    @include center;
-    margin-left: 8%;
-
-    span {
-      overflow: hidden;
-      max-height: 16vh;
-      max-width: 35%;
-      font-style: normal;
-      font-weight: normal;
-      text-transform: capitalize;
-      color: #707070;
-    }
+  span {
+    max-height: 16vh;
+    max-width: 35%;
+    text-transform: capitalize;
+    color: #707070;
   }
+}
 
-  .advantages {
-    width: 90vw;
-    height: 85vh;
-    @include center;
-    justify-content: space-around;
-    margin: 8% auto 0;
+.advantages {
+  width: 90vw;
+  height: 85vh;
+  @include center;
+  justify-content: space-around;
+  margin: 8% auto 0;
 
-    .lf {
-      display: grid;
+  .lf {
+    display: grid;
 
-      .adv {
+    .adv {
+      @include center;
+
+      .square {
+        width: 25vw;
+        height: 40vh;
+        background-color: #FFEDDE;
+        padding: auto;
         @include center;
+        justify-content: center;
+        margin-right: 10%;
 
-        .square {
-          width: 25vw;
-          height: 40vh;
-          background-color: #FFEDDE;
-          padding: auto;
-          @include center;
-          justify-content: center;
-          margin-right: 10%;
-
-          img {
-            width: 60%;
-          }
+        img {
+          width: 60%;
         }
       }
     }
+  }
 
-    .txt:last-child {
-      margin-right: 10%;
-    }
+  .txt:last-child {
+    margin-right: 10%;
+  }
 
-    .txt span {
-      font-size: x-large;
-      font-style: normal;
-      font-weight: 700;
-      text-transform: capitalize;
-      color: #2E266F;
-    }
+  .txt span {
+    font-size: x-large;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: capitalize;
+    color: #2E266F;
+  }
 
-    .txt p {
-      max-width: 75%;
-      font-style: normal;
-      font-weight: normal;
-      text-transform: capitalize;
-      color: #707070;
-    }
+  .txt p {
+    max-width: 75%;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    color: #707070;
+  }
 
-    .txt-center {
+  .txt-center {
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    width: 75%;
+
+    p {
       margin: 0 auto;
-      display: grid;
-      justify-content: center;
-      width: 75%;
-
-      p {
-        margin: 0 auto;
-        text-align: center;
-      }
-    }
-
-    .span_center {
       text-align: center;
     }
+  }
 
-    .rg {
-      height: 100%;
-      background-color: #FFEDDE;
-      display: grid;
-      align-items: center;
-      justify-content: center;
-      padding: 5%;
+  .span_center {
+    text-align: center;
+  }
 
-      img {
-        margin: 0 auto;
-        width: 60%;
-        height: 60%;
-      }
+  .rg {
+    height: 100%;
+    background-color: #FFEDDE;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+
+    img {
+      margin: 0 auto;
+      width: 60%;
+      height: 60%;
     }
   }
 }
+
 
 /* products */
 
@@ -255,24 +249,6 @@
   }
 }
 
-@media all and (max-width:550px) {
-  .advantages {
-    display: grid;
-
-    .lf {
-      width: 80vw;
-    }
-
-    .rg {
-      width: 80vw;
-    }
-
-    .square {
-      max-height: 5vh;
-    }
-  }
-}
-
 @media all and (max-width: 800px) {
 
   .container {
@@ -283,8 +259,10 @@
 
     .title {
       width: 90vw;
+      margin: 0 auto;
 
       .txt {
+        margin: 0 auto; 
         font-size: 180%;
         width: 90vw;
       }
@@ -292,9 +270,9 @@
   }
 
   .container img {
-    position: relative;
-    width: 65vw;
-    margin: 0 0 0 15%;
+    position: inherit;
+    width: 90vw;
+    margin: 0 auto;
   }
 
   .container::after {
@@ -302,7 +280,40 @@
   }
 
   .products {
+    display: grid;
+    width: 100%;
+    height: fit-content;
+  }
+
+  .products a {
     display: none;
+  }
+
+  .products a:first-child {
+    display: block;
+    width: 80%;
+    margin:0 auto 5%;
+
+    .item {
+      width: 100%;
+    }
+  }
+
+  .products a:last-child {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .serv_topic span {
+    font-size: 2vw;
   }
 
   .topic {
@@ -313,5 +324,3 @@
     }
   }
 }
-
-
