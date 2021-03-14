@@ -89,6 +89,7 @@
 
 .block {
   width: 100%;
+  height: fit-content;
   background-color: #FFF5EC;
 }
 
@@ -132,27 +133,14 @@
 
 /* service */
 
-.block-service .serv_topic {
-  @include center;
-  margin-left: 8%;
-
-  span {
-    max-height: 16vh;
-    max-width: 35%;
-    text-transform: capitalize;
-    color: #707070;
-  }
-}
-
 .advantages {
-  width: 90vw;
-  height: 85vh;
-  @include center;
-  justify-content: space-around;
-  margin: 8% auto 0;
+  width: 90%;
+  display: flex;
+  margin: 0 auto;
 
   .lf {
     display: grid;
+    margin-top: 2%;
 
     .adv {
       @include center;
@@ -196,7 +184,6 @@
   .txt-center {
     margin: 0 auto;
     display: grid;
-    justify-content: center;
     width: 75%;
 
     p {
@@ -210,12 +197,10 @@
   }
 
   .rg {
-    height: 100%;
     background-color: #FFEDDE;
     display: grid;
     align-items: center;
-    justify-content: center;
-    padding: 5%;
+    margin-top: 2%;
 
     img {
       margin: 0 auto;
@@ -230,21 +215,20 @@
 
 .block-products {
   text-align: center;
+  padding-top: 3%;
+  height: fit-content;
 
   span {
     font-weight: bolder;
     font-size: x-large;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     text-transform: capitalize;
     color: #2E266F;
   }
 
   p {
-    overflow: hidden;
-    max-height: 16vh;
-    max-width: 35%;
-    margin: 2% auto;
+    margin: 0 auto;
     color: #707070;
   }
 }
@@ -322,5 +306,50 @@
     p {
       font-size: 4vw;
     }
+  }
+
+  .advantages {
+    display: grid;
+    height: fit-content;
+
+    .lf {
+      width: 100%;
+      height: 50%;
+
+      .adv {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 20%;
+        height: fit-content;
+
+        .square {
+          width: 45%;
+          padding: 5%;
+        }
+
+        .txt {
+          font-size: 3vw;
+
+          span {
+            font-size: 5vw;
+          }
+        }
+      }
+    }
+
+    .square:last-child {
+      margin-right: 5%;
+    }
+
+    .rg {
+      margin-top: 5%;
+      height: fit-content;
+      padding-bottom: 5%;
+    }
+  }
+
+  .block-products p {
+    width: 85%;
   }
 }
