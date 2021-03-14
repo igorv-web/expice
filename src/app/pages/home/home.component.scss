@@ -89,7 +89,6 @@
 
 .block {
   width: 100%;
-  padding: 3% 0 7% 0;
   background-color: #FFF5EC;
 }
 
@@ -116,7 +115,7 @@
   p {
     font-size: 2vw;
     font-style: normal;
-    font-weight: 500;
+    font-weight: bold;
     color: #2E266F;
   }
 }
@@ -304,6 +303,14 @@
 
   .products {
     display: none;
+  }
+
+  .topic {
+    width: 45vw;
+
+    p {
+      font-size: 4vw;
+    }
   }
 }
 
