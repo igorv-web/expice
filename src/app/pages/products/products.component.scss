@@ -38,12 +38,14 @@
     width: 100%;
     height: 30%;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: flex-end;
     background-color: #FFEDDE;
     align-items: center;
 
     .prod_info {
       width: 100%;
+      height: 50%;
       display: flex;
       justify-content: space-around;
     }
@@ -84,5 +86,29 @@
   .heart {
     display: none;
     margin: 0 auto;
+  }
+}
+
+button {
+  width: 35%;
+  height: 35%;
+  @include bg-color;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+}
+
+@media all and (max-width: 800px) {
+
+  .product {
+    width: 100%;
+
+    .name {
+      font-size: xx-large;
+    }
+
+    .price {
+      font-size: 150px;
+    }
   }
 }
