@@ -6,8 +6,6 @@
   background-color: #FFF5EC;
   display: flex;
   justify-content: center;
-  margin-top: 0;
-  padding-top: 0;
 
   .back {
     font-weight: bold;
@@ -21,10 +19,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 
     img {
       width: 50%;
-      height: 85%;
     }
 
     .rg {
@@ -48,6 +46,7 @@
 
       button {
         width: 35%;
+        height: 10vh;
         @include bg-color;
         color: #fff;
         border: 0;
@@ -60,6 +59,35 @@
         &:hover {
           opacity: 0.6;
         }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+  
+  .back {
+    display: none;
+  }
+
+  .conatiner .content {
+    flex-wrap: wrap;
+
+    img {
+      width: 100%;
+    }
+
+    .rg {
+      width: 100%;
+      display: grid;
+      text-align: center;
+
+      .name {
+        font-size: xx-large;
+      }
+
+      button {
+        margin: 5% auto 0;
       }
     }
   }

@@ -1,10 +1,11 @@
 <div class="conatiner">
   <a [routerLink]="[ '/menu/' +view?.category?.urlName ]" class="back">back</a>
   <div class="content">
-    <img [src]="view.img" alt="">
+    <img [src]="view?.img" alt="">
     <div class="rg">
-      <span class="name">{{view.name}}</span>
-      <span class="price">{{view.price}}$</span>
+      <span class="name">{{view?.name}}</span>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur maiores repellendus, error quae architecto animi. Deleniti autem beatae pariatur aspernatur?</p>
+      <span class="price">{{view?.price}}$</span>
       <button (click)="addBasket(view)">Add to basket</button>
     </div>
   </div>

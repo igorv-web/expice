@@ -103,8 +103,16 @@ button {
   .product {
     width: 100%;
 
-    .name {
-      font-size: xx-large;
+    .prod_info .name {
+      font-size: large;
+    }
+
+    .count p {
+      font-size: x-large;
+    }
+
+    .count a {
+      display: none;
     }
 
     .price {
