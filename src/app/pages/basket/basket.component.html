@@ -1,15 +1,18 @@
 <div class="container">
   <div class="content">
-    <div class="product" *ngFor="let bsk of basket">
-      <div class="lg">
-        <img [src]="bsk.img" alt="">
-        <span>{{bsk.name}}</span>
-      </div>
-      <div class="rg">
-        <a (click)="increase(bsk)">+</a>
-        <span class="price">{{bsk.price * bsk.count}}$</span>
-        <a (click)="decrease(bsk)">-</a>
-        <img src="/assets/img/icons/basket/delete.png" alt="" (click)="removeProduct(bsk)">
+    <div class="center">
+      <p *ngIf="!basket.length">Basket is empty =(</p>
+      <div class="product" *ngFor="let bsk of basket">
+        <div class="lg">
+          <img [src]="bsk.img" alt="">
+          <span>{{bsk.name}}</span>
+        </div>
+        <div class="rg">
+          <a (click)="increase(bsk)">+</a>
+          <span class="price">{{bsk.price * bsk.count}}$</span>
+          <a (click)="decrease(bsk)">-</a>
+          <img src="/assets/img/icons/basket/delete.png" alt="" (click)="removeProduct(bsk)">
+        </div>
       </div>
     </div>
     <div class="end">

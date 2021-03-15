@@ -2,6 +2,7 @@
 
 .container {
   min-height: 85vh;
+  width: 100%;
   background-color: #FFF5EC;
   display: flex;
   justify-content: center;
@@ -9,6 +10,14 @@
   .content {
     width: 90%;
     display: grid;
+
+    p {
+      font-size: xx-large;
+      font-weight: bold;
+      @include main-color;
+      text-align: center;
+      line-height: 70vh;
+    }
   }
 
   .product {
@@ -69,7 +78,6 @@
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    margin-top: 5%;
 
     span {
       font-weight: bold;
@@ -93,6 +101,37 @@
       &:hover {
         opacity: 0.6;
       }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+
+  .container {
+
+    .product {
+      font-size: large;
+      margin-bottom: 3%;
+
+      .lg img {
+        display: none;
+      }
+
+      .rg {
+        width: 50%;
+
+        span {
+          margin: 0 20%;
+        }
+
+        img {
+          width: 15%;
+        }
+      }
+    }
+
+    .end button {
+      width: 25%;
     }
   }
 }
