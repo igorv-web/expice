@@ -48,12 +48,29 @@
         font-size: large;
         @include main-color;
         font-weight: bold;
+        display: flex;
+        align-items: center;
 
         p {
           font-size: medium;
+          margin-left: 5%;
           color: #2E266F;
         }
       }
+    }
+  }
+}
+
+@media all and (max-width: 800px) {
+
+  .container .content {
+    width: 90%;
+    align-items: flex-start;
+
+    .user {
+      width: 100%;
+      height: fit-content;
+      padding-bottom: 5%;
     }
   }
 }

@@ -77,3 +77,14 @@
     }
   }
 }
+
+@media all and (max-width: 800px) {
+
+  .content img {
+    display: none;
+  }
+
+  .container .content .reg {
+    width: 100%;
+  }
+}
