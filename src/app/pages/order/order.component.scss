@@ -9,19 +9,19 @@
   align-items: center;
 
   .content {
-    width: 50%;
+    width: 60%;
     height: 75vh;
-    display: flex;
-    justify-content: flex-start;
+    display: grid;
+    justify-content: center;
 
     input {
-      width: 100%;
+      width: 40vw;
       height: 5vh;
       margin-bottom: 5%;
     }
 
     select {
-      width: 101.5%;
+      width: 41vw;
       height: 5vh;
       margin-bottom: 5%;
     }
@@ -33,7 +33,7 @@
     }
 
     button {
-      width: 15%;
+      width: 8vw;
       height: 8vh;
       @include bg-color;
       color: #fff;
@@ -56,10 +56,6 @@
     width: 90%;
     height: fit-content;
     align-items: center;
-
-    form {
-      height: fit-content;
-    }
 
     button {
       width: 35vw;

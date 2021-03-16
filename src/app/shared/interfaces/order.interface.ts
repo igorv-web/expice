@@ -1,7 +1,5 @@
-import { IProduct } from "./product.interface";
-
 export interface IOrder {
-  products: Array<IProduct>;
+  products: Array<any>;
   adress: string;
   name: string;
   phone: string;

@@ -1,19 +1,17 @@
 <div class="container">
   <div class="content">
-    <form>
-      <label for="adress">Adress</label>
-      <input type="text" placeholder="Write your adress" [(ngModel)]="adress">
-      <label for="name">Name</label>
-      <input type="text" placeholder="Write your name" [(ngModel)]="name">
-      <label for="phone">Phone</label>
-      <input type="tel" placeholder="Write your phone number" [(ngModel)]="phone">
-      <label for="payment">Payment method</label>
-      <select name="payment" id="payment">
-        <option>Choose type</option>
-        <option value="card">Card</option>
-        <option value="cash">Cash</option>
-      </select>
-      <button (click)="confirmOrder()">Order</button>
-    </form>
+    <label for="adress">Adress</label>
+    <input type="text" placeholder="Write your adress" [(ngModel)]="orderAdress">
+    <label for="name">Name</label>
+    <input type="text" placeholder="Write your name" [(ngModel)]="orderName">
+    <label for="phone">Phone</label>
+    <input type="tel" placeholder="Write your phone number" [(ngModel)]="orderPhone">
+    <label for="payment">Payment method</label>
+    <select name="payment" id="payment" [(ngModel)]="payment">
+      <option disabled>Choose type</option>
+      <option value="card">Card</option>
+      <option value="cash">Cash</option>
+    </select>
+    <button (click)="confirmOrder()">Order</button>
   </div>
 </div>
